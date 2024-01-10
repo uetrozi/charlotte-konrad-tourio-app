@@ -3,30 +3,34 @@ import Place from "../../../../db/models/Places";
 
 export default async function handler(request, response) {
   await dbConnect();
-
   const { id } = request.query;
 
-  if (request.method === "GET") {
-    const place = await Place.findById(id);
-    if (!place) {
-      return response.status(404).json({ status: "Not Found" });
+  try {
+    switch (request.method) {
+      case "GET":
+        const place = await Place.findById(id);
+        if (!place) {
+          return response.status(404).json({ status: "Not Found" });
+        }
+        response.status(200).json(place);
+        break;
+
+      case "PATCH": // Changed from "PUT" to "PATCH"
+        await Place.findByIdAndUpdate(id, { $set: request.body });
+        response.status(200).json({ status: "Place successfully updated." });
+        break;
+
+      case "DELETE":
+        await Place.findByIdAndDelete(id);
+        response.status(200).json({ status: "Place successfully deleted." });
+        break;
+
+      default:
+        response.status(405).json({ status: "Method Not Allowed" });
+        break;
     }
-    response.status(200).json(place);
+  } catch (error) {
+    console.error("Error processing request:", error.message);
+    response.status(500).json({ status: "Internal Server Error", error: error.message });
   }
-  if (!id) {
-    return;
-  }
-
-  // const place = db_places.find((place) => place._id.$oid === id);
-  // const comment = place?.comments;
-  // const allCommentIds = comment?.map((comment) => comment.$oid) || [];
-  // const comments = db_comments.filter((comment) =>
-  //   allCommentIds.includes(comment._id.$oid)
-  // );
-
-  // if (!db_place) {
-  //   return response.status(404).json({ status: "Place not found" });
-  // }
-
-  // response.status(200).json({ place: place, comments: comments });
 }
