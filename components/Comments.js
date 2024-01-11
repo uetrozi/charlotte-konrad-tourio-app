@@ -16,7 +16,6 @@ export default function Comments({ locationName, comments, id }) {
     border: 5px solid black;
     border-radius: 0.8rem;
     padding: 0.5rem;
-    gap: 1rem;
     text-align: center;
     p {
       border-bottom: solid 1px black;
