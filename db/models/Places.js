@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import "./Comments";
 
 const { Schema } = mongoose;
 
@@ -8,7 +9,7 @@ const placeSchema = new Schema({
   image: { type: String, required: true, match: [/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&=]*)?/gi], },
   mapURL: { type: String, required: true, match: [/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&=]*)?/gi] },
   description: { type: String, required: true },
-  comments: { type: [Schema.Types.ObjectId], ref: "Comments" },
+  comments: { type: [Schema.Types.ObjectId], ref: "Comment" },
 });
 
 const Place = mongoose.models.Place || mongoose.model("Place", placeSchema);
