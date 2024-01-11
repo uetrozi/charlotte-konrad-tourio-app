@@ -6,16 +6,22 @@ import { StyledLink } from "../components/StyledLink.js";
 
 const List = styled.ul`
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
 `;
 
 const ListItem = styled.li`
+  font: poppins;
   position: relative;
-  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 const FixedLink = styled(StyledLink)`
   position: fixed;

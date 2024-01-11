@@ -6,7 +6,8 @@ const Main = styled.main`
   display: grid;
   gap: 0.5rem;
   margin-top: 5rem;
-  padding: 0.5rem;
+  padding: 0 80px 0 80px;
+
   position: relative;
   width: 100%;
 `;

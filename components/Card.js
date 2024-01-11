@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StyledImage } from "./StyledImage.js";
 
 const Article = styled.article`
-  border: 5px solid black;
+  border: 5px solid white;
   border-radius: 0.8rem;
   padding: 0.5rem;
 `;

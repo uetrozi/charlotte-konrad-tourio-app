@@ -10,6 +10,10 @@ export const StyledButton = styled.button`
   border: none;
   font-size: inherit;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   ${({ variant }) =>
     variant === "delete" &&
     css`
