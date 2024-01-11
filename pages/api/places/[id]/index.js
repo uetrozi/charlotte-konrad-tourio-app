@@ -18,6 +18,7 @@ export default async function handler(request, response) {
         response.status(200).json(place);
         break;
 
+
       case "POST":
         const { name, comment } = request.body;
 
@@ -33,7 +34,10 @@ export default async function handler(request, response) {
         response.status(201).json(updatedPlace);
         break;
 
-      case "PATCH":
+    
+
+      case "PATCH": 
+
         await Place.findByIdAndUpdate(id, { $set: request.body });
         response.status(200).json({ status: "Place successfully updated." });
         break;
