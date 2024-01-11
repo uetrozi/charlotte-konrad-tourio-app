@@ -17,8 +17,8 @@ export default function Comments({ locationName, comments }) {
     }
   `;
 
-  function handleSubmitComment(e) {
-    e.preventDefault();
+  function handleSubmitComment(event) {
+    event.preventDefault();
   }
 
   return (
@@ -33,10 +33,10 @@ export default function Comments({ locationName, comments }) {
       {comments && (
         <>
           <h1> {comments.length} fans commented on this place:</h1>
-          {comments.map(({ name, comment }, idx) => {
+          {comments.map(({ name, comment }, _id) => {
             return (
               <>
-                <p key={idx}>
+                <p key={_id}>
                   <small>
                     <strong>{name}</strong> commented on {locationName}
                   </small>

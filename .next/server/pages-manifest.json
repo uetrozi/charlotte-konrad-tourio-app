@@ -3,8 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/places/[id]": "pages/places/[id].js",
-  "/api/places/[id]": "pages/api/places/[id].js",
-  "/create": "pages/create.js",
-  "/api/places": "pages/api/places.js"
+  "/places/[id]": "pages/places/[id].js"
 }
