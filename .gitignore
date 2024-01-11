@@ -1,3 +1,6 @@
 node_modules
 .next/
-.DSstore
+.DS_Store
+public
+.cache
+
