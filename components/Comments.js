@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { FormContainer, Input, Label } from "./Form";
 import { StyledButton } from "./StyledButton.js";
+import useSWR from "swr";
 
-export default function Comments({ locationName, comments }) {
+export default function Comments({ locationName, comments, id }) {
+  const { mutate } = useSWR(`/api/places`);
   const Article = styled.article`
     display: flex;
     flex-direction: column;
@@ -16,9 +18,27 @@ export default function Comments({ locationName, comments }) {
       padding: 20px;
     }
   `;
-
-  function handleSubmitComment(event) {
+  async function handleSubmitComment(event) {
     event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    try {
+      const response = await fetch(`/api/places/${id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error!");
+      }
+      event.target.reset();
+
+      mutate();
+    } catch (error) {
+      console.log("ERROR !!");
+    }
+    console.log(`Comment added successfully...`);
   }
 
   return (
