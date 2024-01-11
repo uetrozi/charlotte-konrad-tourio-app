@@ -14,7 +14,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   font: poppins;
-  
+  font-weight: 200;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
