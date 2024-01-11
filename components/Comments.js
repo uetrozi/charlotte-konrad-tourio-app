@@ -59,22 +59,11 @@ export default function Comments({ locationName, comments, id }) {
         <Input type="text" name="name" placeholder="name" />
         <Label htmlFor="comment">Your Comment</Label>
         <Input type="text" name="comment" placeholder="comment here..." />
-        {submitted && (
-          <p
-            style={{
-              marginTop: "2px",
-              backgroundColor: "lightgreen",
-              borderRadius: "14px",
-            }}
-          >
-            Comment submitted
-          </p>
-        )}
         <StyledButton
           type="submit"
-          style={{ visibility: submitted ? "hidden" : "visible" }}
+          style={{ backgroundColor: submitted ? "lightgreen" : "lightsalmon" }}
         >
-          Send
+          {submitted ? 'Submitted!' : 'Send'}
         </StyledButton>
       </FormContainer>
       {comments && (
