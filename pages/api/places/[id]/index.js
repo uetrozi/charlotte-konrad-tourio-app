@@ -15,7 +15,7 @@ export default async function handler(request, response) {
         response.status(200).json(place);
         break;
 
-      case "PATCH": // Changed from "PUT" to "PATCH"
+      case "PATCH": 
         await Place.findByIdAndUpdate(id, { $set: request.body });
         response.status(200).json({ status: "Place successfully updated." });
         break;
