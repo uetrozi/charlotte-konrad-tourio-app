@@ -56,6 +56,7 @@ export default function Card({ name, image, location, id }) {
             alt=""
           />
         </ImageContainer>
+        <p></p>
         <figcaption>{name}</figcaption>
       </Figure>
       <p>Location: {location}</p>
