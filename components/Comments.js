@@ -16,6 +16,7 @@ export default function Comments({ locationName, comments, id }) {
     border: 5px solid black;
     border-radius: 0.8rem;
     text-align: center;
+    padding: 5px;
     p {
       border-bottom: solid 1px black;
       padding: 5px;
@@ -61,7 +62,7 @@ export default function Comments({ locationName, comments, id }) {
           type="submit"
           style={{ backgroundColor: submitted ? "lightgreen" : "lightsalmon" }}
         >
-          {submitted ? 'Submitted!' : 'Send'}
+          {submitted ? "Submitted!" : "Send"}
         </StyledButton>
       </FormContainer>
       {comments && (
