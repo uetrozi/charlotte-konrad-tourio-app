@@ -8,6 +8,7 @@ import { StyledImage } from "../../../components/StyledImage.js";
 import Comments from "../../../components/Comments.js";
 
 const ImageContainer = styled.div`
+  margin-top: 32px;
   position: relative;
   height: 15rem;
 `;
@@ -58,11 +59,6 @@ export default function DetailsPage() {
 
   return (
     <>
-   
-   
-      <Link href={"/"} passHref legacyBehavior>
-        <StyledLink justifySelf="start">back</StyledLink>
-      </Link>
       <ImageContainer>
         <StyledImage
           src={data.image}
@@ -77,11 +73,15 @@ export default function DetailsPage() {
       <h2>
         {data.name}, {data.location}
       </h2>
+
       <Link href={data.mapURL} passHref legacyBehavior>
         <StyledLocationLink>Location on Google Maps</StyledLocationLink>
       </Link>
       <p>{data.description}</p>
       <ButtonContainer>
+        <Link href={"/"} passHref legacyBehavior>
+          <StyledLink justifySelf="start">Go back</StyledLink>
+        </Link>
         <Link href={`/places/${id}/edit`} passHref legacyBehavior>
           <StyledLink>Edit</StyledLink>
         </Link>
@@ -90,7 +90,6 @@ export default function DetailsPage() {
         </StyledButton>
       </ButtonContainer>
       <Comments locationName={data.name} id={id} comments={data.comments} />
-      
     </>
   );
 }

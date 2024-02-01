@@ -7,11 +7,15 @@ const Headline = styled.h1`
   width: 100%;
   background-color: white;
   margin: 0;
-  padding: 20px;
+  padding-top: 15px;
+  padding: 10px;
   text-align: center;
   z-index: 1;
+  font-family: 'Pacifico', cursive;
+  font-size: 3.2em;
+
 `;
 
 export default function TitleBar() {
-  return <Headline>Tourio</Headline>;
+  return <Headline>WanderWays</Headline>;
 }
